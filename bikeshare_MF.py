@@ -203,15 +203,16 @@ def main():
 
         look = input('Finally, would you like to have a look at the database? [y/n]')
         x = 0
-        while x+5 < df.shape[0]:
+        n = 5
+        while x+n < df.shape[0]:
 
             if look == 'n':
                 break
             else:
-
-                print(df.iloc[x:x+5])
-                x += 5
-                a = input('please press "y" if you want to load 5 more rows or "n" to exit.').lower().strip()
+                n = int(input('how many rows would you like to see'))
+                print(df.iloc[x:x+n])
+                x += n
+                a = input('please press "y" if you want to load more rows or "n" to exit.').lower().strip()
                 if a == 'y':
                     continue
                 else:
